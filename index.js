@@ -14,24 +14,15 @@ const errorHandler = require('./src/error-handlers/500');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/models/users');
 
 const router = require('./src/router');
-var whitelist = ['https://friendly-feynman-cbc074.netlify.app', 'https://ibrahim-abdullah-chat-room.netlify.app'];
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin:  function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: 'https://friendly-feynman-cbc074.netlify.app',
     credentials: true,
   },
 });
-
-// 'https://friendly-feynman-cbc074.netlify.app'
 
 app.use(cors());
 // app.use(logger);
