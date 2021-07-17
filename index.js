@@ -19,7 +19,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: ['https://friendly-feynman-cbc074.netlify.app', 'https://ibrahim-abdullah-chat-room.netlify.app', 'https://ibrahim-abdullah-chatting.netlify.app'],
+    origin: 'https://friendly-feynman-cbc074.netlify.app',
     credentials: true,
   },
 });
